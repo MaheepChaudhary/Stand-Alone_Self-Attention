@@ -1,3 +1,5 @@
+# **Implementation of Stand-Alone Self-Attention Research Paper**    
+## **Introduction**   
 This part contains the implementation of the Stand-alone self attention model in tensorflow.        
 This is divided into parts as:-         
 **readme**           
@@ -7,22 +9,23 @@ This is divided into parts as:-
 **model** containg the architecture of the model         
 **preprocess** containg the arguments that will preprocess the images
 
-**REFERENCES: -**       
+## **Methods**
+The paper focuses on the attention in images and also of two types: -
+
+### **Attention Stem**
+The layer is added in the initial part of the architecture so as to extract basic features of the image, in which convolution was outperforming the Attention layer proposed. The performs equal to convolution. The equation is some what looks like: -
+![Attention_Stem](pics/Attention%20Stem.png)
+
+### **Attention**
+The latter layers which removed the spatial convolution is the attention layer. It also performs equal to the spatial convolution layer but significantly  reduces the number of FLOPS and parameters. It performs the atteniton procedure, as given in the figure below.     
+![Attenion_figure](pics/figure.png)
+
+![Attenion_Figure](pics/figure1.png)
+
+The equations used is: -
+![Equation](pics/equation.png)  
+
+## **References**       
 [ResNet](https://github.com/suvoooo/Learn-TensorFlow/blob/master/resnet/Implement_Resnet_TensorFlow.ipynb)          
 [Stand-alone_Pytorch_Implementation](https://github.com/leaderj1001/Stand-Alone-Self-Attention)
 
-The categories which were cxonsidered fginally were as follows:- 
-**'Jackets','Sweaters', 'Caps','Dresses','Trousers','Shorts', 'Sunglasses', 'Sports Shoes', 'Shirts','Tshirts'**
-
-The accuracy achieved by the model was 
-**Validation accuracy = 0.9543129801750183**
-**Accuracy = 0.9425503015518188**
-
-The training graph look like:-
-![Training Graph](training.png)
-
-The log file of trianing has been attached in the same folder. The confusion matrix of the model looks like:-   
-![Confusion Matrix](confusion_matrix.png)
-
-The evaluation of the model on the real video look like:- 
-![Evaluation](Evaluation.png)

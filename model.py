@@ -71,13 +71,11 @@ class ResNet(tk.layers.Layer):
         self.block1 = resblock([64,128],1,True)
         self.block2 = resblock([128,128],1,False)
         self.block3 = resblock([128,256],2,False)
-        '''
         self.block4 = resblock([256,256],1,False)
         self.block5 = resblock([256,256],2,False)
         self.block6 = resblock([256,256],1,False)
         self.block7 = resblock([256,512],1,False)
         self.block8 = resblock([512,512],1,False)
-        '''
         self.f = Flatten()
         self.d = Dense(self.classes,activation = 'softmax')
         
@@ -88,20 +86,13 @@ class ResNet(tk.layers.Layer):
         x = self.bn(x)
         x = self.mp(x)
         x = self.block1(x)
-        #x = Dropout(0.5)(x)
         x = self.block2(x)
-        #x = Dropout(0.3)(x)
         x = self.block3(x)
-        #x = Dropout(0.2)(x)
-        #x = self.block4(x)
-        #x = Dropout(0.3)(x)
-        '''
+        x = self.block4(x)
         x = self.block5(x)
         x = self.block6(x)
-        x = Dropout(0.3)(x)
         x = self.block7(x)
         x = self.block8(x)
-        '''
         x = self.ap(x)
         dense = self.f(x)
         result = self.d(dense)
