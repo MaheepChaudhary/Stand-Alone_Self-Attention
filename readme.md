@@ -1,6 +1,6 @@
 # **Implementation of Stand-Alone Self-Attention Research Paper**    
 ## **Introduction**   
-This part contains the implementation of the Stand-alone self attention model in tensorflow.        
+This part contains the implementation of the [Stand-alone self attention research paper](https://arxiv.org/pdf/1906.05909.pdf) in tensorflow.        
 This is divided into parts as:-         
 **readme**           
 **attention** containg the module of attention stem and attention(used in convolutions core blocks)           
